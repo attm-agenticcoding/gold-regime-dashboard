@@ -31,8 +31,10 @@ jobs:
         with:
           node-version: "22"
       - run: pip install xlrd==2.0.1
-      - name: engine unit tests
-        run: node --test tests/engine.test.mjs
+      - name: unit tests (engine + data-layer parsers)
+        run: |
+          node --test tests/engine.test.mjs
+          python -m unittest tests/test_snapshot.py
       - name: pull all sources -> data/history.json
         id: snap
         run: |

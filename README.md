@@ -38,6 +38,7 @@ tests/engine.test.mjs    引擎单测（04 示例、滞回、危机序列、表�
 
 ```
 node --test tests/engine.test.mjs
+python3 -m unittest tests/test_snapshot.py
 python3 -m http.server 8000   # 打开 http://localhost:8000/
 python3 scripts/snapshot.py --validate-only   # 只出端点状态表
 python3 scripts/snapshot.py                   # 正式拉数（需要能访问 FRED 等域名）
