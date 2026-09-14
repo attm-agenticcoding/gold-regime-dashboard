@@ -1,6 +1,6 @@
 # 端点状态表（Step 1 交付物）
 
-验证日期：2026-09-14（美东上午）。验证方式：在浏览器里对每个端点做 fetch + 解析 + 打印最后 3 条记录（云端沙箱和本机 VM 的出网策略都封了这些域名，所以用浏览器做的验证；GitHub Actions 出网不受限，`scripts/validate_endpoints.py` 会在每次 snapshot 前重跑同样的检查并把结果写进 `data/endpoint_status.json`，页面"数据状态"面板直接读它）。
+验证日期：2026-09-14（美东上午）。验证方式：在浏览器里对每个端点做 fetch + 解析 + 打印最后 3 条记录（云端沙箱和本机 VM 的出网策略都封了这些域名，所以用浏览器做的验证；GitHub Actions 出网不受限，`scripts/snapshot.py --validate-only` 会重跑同样的检查并把结果写进 `data/endpoint_status.json`（每次正式 snapshot 也会重写它），页面"数据状态"面板直接读它）。
 
 cadence 判定：日频 ≤ 3 个交易日、周频 ≤ 10 天、月频 ≤ 45 天。
 
