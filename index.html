@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Gold Regime Monitor</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪙</text></svg>">
+<style>
+:root{
+  color-scheme:light;
+  --bg:#f6f5f2;--surface:#fcfcfb;--surface-2:#f0efeb;--line:#e2e0d9;--line-2:#cfcdc4;
+  --ink:#0b0b0b;--ink-2:#52514e;--ink-3:#8a8880;
+  --s1:#2a78d6;--s2:#eb6834;--s3:#1baf7a;--s4:#eda100;--s5:#e87ba4;--s7:#4a3aa7;--s8:#e34948;
+  --gold:#b8860b;--good:#1a7f37;--warn:#b26a00;--bad:#c0392b;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  color-scheme:dark;--bg:#121211;--surface:#1a1a19;--surface-2:#232321;--line:#2f2f2c;--line-2:#45453f;
+  --ink:#ffffff;--ink-2:#c3c2b7;--ink-3:#8c8b82;--s1:#3987e5;--s2:#d95926;--s3:#199e70;--s4:#c98500;--s5:#d55181;--s7:#9085e9;--s8:#e66767;
+  --gold:#d8a629;--good:#3fb950;--warn:#d29922;--bad:#f85149;}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#121211;--surface:#1a1a19;--surface-2:#232321;--line:#2f2f2c;--line-2:#45453f;
+  --ink:#ffffff;--ink-2:#c3c2b7;--ink-3:#8c8b82;--s1:#3987e5;--s2:#d95926;--s3:#199e70;--s4:#c98500;--s5:#d55181;--s7:#9085e9;--s8:#e66767;
+  --gold:#d8a629;--good:#3fb950;--warn:#d29922;--bad:#f85149;}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 -apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue","Noto Sans SC",sans-serif;-webkit-text-size-adjust:100%}
+body{padding:0 16px 96px;padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right))}
+main{max-width:920px;margin:0 auto}
+h1{font-size:18px;margin:14px 0 2px;letter-spacing:.2px}
+h2{font-size:14px;margin:26px 0 8px;color:var(--ink-2);font-weight:600;text-transform:uppercase;letter-spacing:.6px}
+h2 small{text-transform:none;letter-spacing:0;font-weight:400;color:var(--ink-3);margin-left:8px}
+.sub{color:var(--ink-3);font-size:12px;margin:0 0 10px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.num{font-variant-numeric:tabular-nums;font-family:var(--mono)}
+.muted{color:var(--ink-3)}.dim{color:var(--ink-2)}
+.pos{color:var(--good)}.neg{color:var(--bad)}.wrn{color:var(--warn)}
+.banner{background:var(--surface-2);border:1px solid var(--line-2);border-radius:10px;padding:6px 10px;font-size:12px;margin:8px 0;color:var(--ink-2)}
+.banner.bad{border-color:var(--bad)}
+/* header */
+.hdr{display:grid;grid-template-columns:auto 1fr;gap:12px 16px;align-items:start}
+.score{font-size:64px;line-height:1;font-weight:700;letter-spacing:-2px}
+.score small{font-size:16px;font-weight:500;letter-spacing:0;color:var(--ink-3);margin-left:4px}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:3px 10px;font-size:13px}
+.kv b{font-weight:600}
+.flag{display:inline-block;padding:1px 8px;border-radius:999px;font-size:12px;border:1px solid var(--line-2);color:var(--ink-2);margin-right:6px}
+.flag.on{background:var(--bad);color:#fff;border-color:var(--bad)}
+.flag.on.good{background:var(--good);border-color:var(--good)}
+.alloc{margin-top:10px}
+.bar{display:flex;height:22px;border-radius:6px;overflow:hidden;border:1px solid var(--line-2);background:var(--surface-2)}
+.bar div{display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;white-space:nowrap}
+.bar .base{background:var(--gold);color:#111}.bar .ovl{background:#e6c35c;color:#111;border-left:2px solid var(--surface)}.bar .dry{color:var(--ink-2)}
+.regimes{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:10px}
+.regime{border:1px solid var(--line);border-radius:8px;padding:6px 8px;font-size:12px;background:var(--surface-2)}
+.regime b{font-size:14px;display:block}
+.regime.lead{border-color:var(--s1);box-shadow:inset 0 0 0 1px var(--s1)}
+.check{display:flex;gap:8px;align-items:baseline;font-size:13px;padding:3px 0}
+.check .m{width:18px;text-align:center;font-family:var(--mono)}
+.ok{color:var(--good)}.near{color:var(--warn)}.no{color:var(--ink-3)}
+/* subscore cards */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.cards .card{padding:10px 12px}
+.cards .t{font-size:12px;color:var(--ink-2)}
+.cards .v{font-size:28px;font-weight:700;line-height:1.1}
+.cards .d{font-size:12px}
+.cards .top{font-size:11px;color:var(--ink-3);margin-top:4px;line-height:1.35}
+/* tables */
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th,td{padding:5px 6px;text-align:right;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--ink-3);font-weight:500;font-size:11px;text-transform:uppercase;letter-spacing:.4px}
+td:first-child,th:first-child{text-align:left}
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.pill{display:inline-block;padding:0 6px;border-radius:999px;font-size:10.5px;border:1px solid var(--line-2);color:var(--ink-2);vertical-align:middle}
+.pill.live{color:var(--good);border-color:var(--good)}.pill.fallback{color:var(--warn);border-color:var(--warn)}.pill.manual{color:var(--s7);border-color:var(--s7)}.pill.error{color:var(--bad);border-color:var(--bad)}.pill.stale{color:var(--bad);border-color:var(--bad)}
+/* charts */
+.chart{position:relative;width:100%}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.chart .tip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--line-2);border-radius:6px;padding:4px 8px;font-size:11.5px;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,.12);display:none;z-index:2}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:11.5px;color:var(--ink-2);margin:4px 0 0}
+.legend i{display:inline-block;width:14px;height:0;border-top:2px solid;vertical-align:middle;margin-right:5px}
+.legend i.dash{border-top-style:dashed}
+.grid{stroke:var(--line);stroke-width:1}
+.axis{fill:var(--ink-3);font-size:10px;font-family:var(--mono)}
+.ln{fill:none;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+.ref{stroke:var(--ink-3);stroke-dasharray:3 3;stroke-width:1}
+.note{font-size:12px;color:var(--ink-2);margin:8px 0 0}
+.weekly{white-space:pre-wrap;font-size:13.5px;line-height:1.55}
+textarea{width:100%;min-height:90px;font:12px/1.4 var(--mono);background:var(--surface-2);color:var(--ink);border:1px solid var(--line-2);border-radius:8px;padding:8px}
+button{font:13px inherit;padding:6px 12px;border-radius:8px;border:1px solid var(--line-2);background:var(--surface);color:var(--ink);cursor:pointer}
+button.primary{background:var(--s1);border-color:var(--s1);color:#fff}
+label.sw{display:inline-flex;gap:8px;align-items:center;font-size:13px}
+details summary{cursor:pointer;color:var(--ink-2);font-size:13px;user-select:none}
+.foot{position:fixed;left:0;right:0;bottom:0;background:var(--surface);border-top:1px solid var(--line);padding:8px 16px;padding-bottom:max(8px,env(safe-area-inset-bottom));font-size:12.5px;color:var(--ink-2);text-align:center;z-index:5}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+@media (max-width:520px){.cards{grid-template-columns:1fr 1fr 1fr;gap:6px}.cards .v{font-size:22px}.score{font-size:56px}.regimes{gap:4px}.regime{padding:5px 6px;font-size:11px}.two{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<main>
+  <h1>Gold Regime Monitor <span class="muted" style="font-weight:400;font-size:13px">黄金 regime 监测</span></h1>
+  <p class="sub" id="asof">加载中…</p>
+  <div id="banners"></div>
+
+  <section class="card" id="header"></section>
+
+  <h2>三个子分数 <small>周变化 · 贡献最大的两个指标</small></h2>
+  <div class="cards" id="subscores"></div>
+
+  <h2>Gold decomposition <small>金价 = f(实际收益率) + 溢价</small></h2>
+  <section class="card"><div id="chart-decomp"></div><p class="note" id="decomp-note"></p></section>
+
+  <h2>Regime flip <small>黄金 vs 10y 实际收益率日变化的 60 日滚动相关</small></h2>
+  <section class="card"><div id="chart-corr"></div><p class="note" id="corr-note"></p></section>
+
+  <h2>Composite 走势 <small>日频 composite 与结算 band</small></h2>
+  <section class="card"><div id="chart-comp"></div></section>
+
+  <h2>实际收益率曲线 <small>TIPS 5y / 10y / 30y</small></h2>
+  <section class="card"><div class="two"><div id="chart-curve"></div><div class="tbl-wrap" id="curve-table"></div></div></section>
+
+  <h2>Anchor 面板 <small>20 / 60 日变化</small></h2>
+  <section class="card tbl-wrap" id="anchor"></section>
+
+  <h2>Plumbing 面板</h2>
+  <section class="card" id="plumbing"></section>
+
+  <h2>触发条件清单 <small>✓ 已满足 · ◐ 距阈值 20% 以内 · · 未满足</small></h2>
+  <section class="card" id="triggers"></section>
+
+  <h2>What changed <small>本周 vs 上周 z-score 变化最大的 5 个</small></h2>
+  <section class="card tbl-wrap" id="changed"></section>
+
+  <h2>Regime weekly <small>每周五结算后的摘要</small></h2>
+  <section class="card weekly" id="weekly"></section>
+
+  <h2>手动输入 <small>央行购金（WGC）· 联储介入开关</small></h2>
+  <section class="card" id="manual"></section>
+
+  <h2>数据状态 <small>来源 · 最后更新 · fallback · stale</small></h2>
+  <section class="card tbl-wrap" id="status"></section>
+
+  <h2>全部指标</h2>
+  <section class="card tbl-wrap" id="metrics"></section>
+</main>
+<div class="foot">参数由我自己设定，这不是投资建议</div>
+<script type="module" src="app.js"></script>
+</body>
+</html>

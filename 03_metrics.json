@@ -1,0 +1,246 @@
+{
+  "version": "2026-09-14",
+  "notes": [
+    "Single source of truth. Engine reads this file; never hardcode metric definitions in code.",
+    "Scoring per metric: piecewise-linear map to 0-100 in the gold-bullish direction. For direction=lower_is_bullish: value<=bullish -> 100, value==neutral -> 50, value>=bearish -> 0, linear in between. For higher_is_bullish the order of thresholds is reversed (bearish < neutral < bullish).",
+    "Group score = weighted mean of member metric scores. Composite = sum(group_weight * group_score).",
+    "Transforms: level | chg_Nd (change over N trading days, same unit as level unless unit says bp) | chg_Nw (calendar weeks) | corr_Nd (rolling correlation of daily changes) | spread (a - b) | ratio | trailing_sum_Nm.",
+    "Every metric records source, last_updated, fallback_used, manual flags in history.json.",
+    "All thresholds are defaults to be tuned by the owner; changing them must not require code changes."
+  ],
+  "groups": {
+    "real_rate_path": { "weight": 0.40, "label": "Real-rate path", "label_zh": "实际收益率路径" },
+    "anchor": { "weight": 0.35, "label": "Anchor", "label_zh": "通胀锚与期限溢价" },
+    "plumbing": { "weight": 0.25, "label": "Plumbing", "label_zh": "财政主导管道" }
+  },
+  "metrics": [
+    {
+      "id": "dfii5_level", "group": "real_rate_path", "weight": 1.0,
+      "name": "5y TIPS real yield", "unit": "pct",
+      "source": "fred", "series": "DFII5", "cadence": "daily", "transform": "level",
+      "direction": "lower_is_bullish", "thresholds": { "bullish": 0.0, "neutral": 1.0, "bearish": 2.0 },
+      "why": "Front end of the real curve; most sensitive to the expected Fed path."
+    },
+    {
+      "id": "dfii5_chg_60d", "group": "real_rate_path", "weight": 1.0,
+      "name": "5y TIPS 60-day change", "unit": "pct_points",
+      "source": "fred", "series": "DFII5", "cadence": "daily", "transform": "chg_60d",
+      "direction": "lower_is_bullish", "thresholds": { "bullish": -0.50, "neutral": 0.0, "bearish": 0.50 },
+      "why": "Direction of travel matters more than level for a regime bet."
+    },
+    {
+      "id": "dfii10_gap_rstar", "group": "real_rate_path", "weight": 1.0,
+      "name": "10y TIPS minus r*", "unit": "pct_points",
+      "source": "derived", "inputs": ["DFII10", "config.r_star"], "cadence": "daily", "transform": "spread",
+      "direction": "lower_is_bullish", "thresholds": { "bullish": -0.5, "neutral": 0.5, "bearish": 1.5 },
+      "why": "Gap above neutral real rate = term/fiscal risk premium the market is charging."
+    },
+    {
+      "id": "dfii30_level", "group": "real_rate_path", "weight": 0.5,
+      "name": "30y TIPS real yield", "unit": "pct",
+      "source": "fred", "series": "DFII30", "cadence": "daily", "transform": "level",
+      "direction": "lower_is_bullish", "thresholds": { "bullish": 1.0, "neutral": 2.0, "bearish": 3.0 },
+      "why": "Long-end real rate; r>g check against ~2% trend real growth."
+    },
+    {
+      "id": "real_policy_rate", "group": "real_rate_path", "weight": 1.0,
+      "name": "Real policy rate (EFFR - core PCE YoY)", "unit": "pct_points",
+      "source": "derived", "inputs": ["EFFR", "PCEPILFE_yoy"], "cadence": "daily", "transform": "spread",
+      "direction": "lower_is_bullish", "thresholds": { "bullish": -1.0, "neutral": 0.5, "bearish": 1.5 },
+      "why": "Direct measure of financial repression at the short end where Treasury actually finances."
+    },
+    {
+      "id": "fed_path_6m", "group": "real_rate_path", "weight": 1.0,
+      "name": "Implied fed funds change, next 6 months", "unit": "bp",
+      "source": "fed_funds_futures", "fallback": "spread(DGS2, EFFR) in bp", "cadence": "daily", "transform": "level",
+      "direction": "lower_is_bullish", "thresholds": { "bullish": -75, "neutral": 0, "bearish": 50 },
+      "why": "Market-priced Fed path. Hikes priced = credibility = gold-bearish near term."
+    },
+
+    {
+      "id": "t10yie_level", "group": "anchor", "weight": 1.0,
+      "name": "10y breakeven inflation", "unit": "pct",
+      "source": "fred", "series": "T10YIE", "cadence": "daily", "transform": "level",
+      "direction": "higher_is_bullish", "thresholds": { "bearish": 2.0, "neutral": 2.4, "bullish": 2.75 },
+      "why": "Has sat in 2.2-2.5 since late 2022; a break above 2.75 is the anchor slipping."
+    },
+    {
+      "id": "t5yifr_level", "group": "anchor", "weight": 1.0,
+      "name": "5y5y forward inflation expectation", "unit": "pct",
+      "source": "fred", "series": "T5YIFR", "cadence": "daily", "transform": "level",
+      "direction": "higher_is_bullish", "thresholds": { "bearish": 2.0, "neutral": 2.3, "bullish": 2.75 },
+      "why": "Cleanest read of long-run anchor, strips out near-term energy shocks."
+    },
+    {
+      "id": "acm_tp10_level", "group": "anchor", "weight": 0.75,
+      "name": "ACM 10y term premium", "unit": "pct",
+      "source": "nyfed_acm", "cadence": "daily", "transform": "level",
+      "direction": "higher_is_bullish", "thresholds": { "bearish": 0.0, "neutral": 0.75, "bullish": 1.5 },
+      "why": "Term premium is the compensation the market demands for debasement risk."
+    },
+    {
+      "id": "curve_2s30s_chg_20d", "group": "anchor", "weight": 0.75,
+      "name": "2s30s steepening, 20 days (bear-steepener when DGS30 also up)", "unit": "bp",
+      "source": "derived", "inputs": ["DGS30", "DGS2"], "cadence": "daily", "transform": "chg_20d of spread(DGS30, DGS2)",
+      "direction": "higher_is_bullish", "thresholds": { "bearish": -20, "neutral": 0, "bullish": 30 },
+      "condition": "score only counts fully if DGS30 chg_20d > 0; otherwise cap at 50",
+      "cap_unless": { "expr": "chg_20d(DGS30) > 0", "cap": 50 },
+      "why": "Bear steepener = long end refusing to be repressed while short end is administered."
+    },
+    {
+      "id": "dollar_broad_chg_60d", "group": "anchor", "weight": 0.75,
+      "name": "Broad dollar index, 60-day % change", "unit": "pct",
+      "source": "fred", "series": "DTWEXBGS", "cadence": "daily", "transform": "chg_60d_pct",
+      "direction": "lower_is_bullish", "thresholds": { "bullish": -4.0, "neutral": 0.0, "bearish": 4.0 },
+      "why": "External debasement channel."
+    },
+    {
+      "id": "gold_real_corr_60d", "group": "anchor", "weight": 1.5,
+      "name": "Rolling 60d correlation: gold daily change vs DFII10 daily change", "unit": "corr",
+      "source": "derived", "inputs": ["gold_spot", "DFII10"], "cadence": "daily", "transform": "corr_60d",
+      "direction": "higher_is_bullish", "thresholds": { "bearish": -0.6, "neutral": -0.2, "bullish": 0.3 },
+      "why": "THE regime-flip signal. Normal regime is negative. Positive = market pricing hikes as unsustainable (fiscal dominance)."
+    },
+
+    {
+      "id": "bills_share", "group": "plumbing", "weight": 1.0,
+      "name": "Bills as % of marketable debt", "unit": "pct",
+      "source": "fiscaldata_mspd", "cadence": "monthly", "transform": "level",
+      "direction": "higher_is_bullish", "thresholds": { "bearish": 15, "neutral": 20, "bullish": 25 },
+      "why": "Activist Treasury issuance: the more the deficit is financed at the front end, the more hostage the interest bill is to the Fed."
+    },
+    {
+      "id": "walcl_chg_13w", "group": "plumbing", "weight": 1.0,
+      "name": "Fed balance sheet, 13-week change", "unit": "usd_bn",
+      "source": "fred", "series": "WALCL", "cadence": "weekly", "transform": "chg_13w",
+      "direction": "higher_is_bullish", "thresholds": { "bearish": -100, "neutral": 0, "bullish": 200 },
+      "why": "Pace of RMP / any re-expansion. Endogenous monetization made visible."
+    },
+    {
+      "id": "tga_chg_4w", "group": "plumbing", "weight": 0.5,
+      "name": "Treasury General Account, 4-week change", "unit": "usd_bn",
+      "source": "fred", "series": "WTREGEN", "cadence": "weekly", "transform": "chg_4w",
+      "direction": "lower_is_bullish", "thresholds": { "bullish": -200, "neutral": 0, "bearish": 200 },
+      "why": "A large drawdown (e.g. to fund buybacks) is a one-off reserve injection."
+    },
+    {
+      "id": "sofr_iorb_spread", "group": "plumbing", "weight": 0.75,
+      "name": "SOFR minus IORB, 5-day average", "unit": "bp",
+      "source": "derived", "inputs": ["SOFR", "IORB"], "cadence": "daily", "transform": "avg_5d of spread(SOFR, IORB)",
+      "direction": "higher_is_bullish", "thresholds": { "bearish": -10, "neutral": 0, "bullish": 15 },
+      "why": "Reserve scarcity signature; positive and rising means the Fed will have to inject."
+    },
+    {
+      "id": "rrp_level", "group": "plumbing", "weight": 0.25,
+      "name": "ON RRP balance", "unit": "usd_bn",
+      "source": "fred", "series": "RRPONTSYD", "cadence": "daily", "transform": "level",
+      "direction": "lower_is_bullish", "thresholds": { "bullish": 0, "neutral": 100, "bearish": 500 },
+      "why": "Buffer that absorbs bill issuance without draining reserves; near zero = no buffer left."
+    },
+    {
+      "id": "buyback_actual_qtr", "group": "plumbing", "weight": 0.5,
+      "name": "Long-end buybacks accepted, trailing quarter", "unit": "usd_bn",
+      "source": "treasurydirect_buybacks", "cadence": "per_operation", "transform": "trailing_sum_3m",
+      "direction": "higher_is_bullish", "thresholds": { "bearish": 5, "neutral": 15, "bullish": 40 },
+      "why": "Actual duration removal by Treasury (announced max was ~$30bn for 9/9-11/4 window)."
+    },
+    {
+      "id": "auction_tail_long", "group": "plumbing", "weight": 0.75,
+      "name": "Avg tail of last 3 long-end auctions (10y/30y nominal + 10y/30y TIPS)", "unit": "bp",
+      "source": "treasurydirect_auctions", "cadence": "per_auction", "transform": "avg of (high_yield - when_issued) for last 3 qualifying auctions",
+      "direction": "higher_is_bullish", "thresholds": { "bearish": -1.0, "neutral": 0.5, "bullish": 2.0 },
+      "why": "Tails and low bid-to-cover = long-end buyers' strike. Also record bid_to_cover as context."
+    },
+    {
+      "id": "interest_to_receipts", "group": "plumbing", "weight": 0.75,
+      "name": "Net interest outlays / receipts, trailing 12 months", "unit": "ratio",
+      "source": "fiscaldata_mts", "cadence": "monthly", "transform": "ratio of trailing_sum_12m",
+      "direction": "higher_is_bullish", "thresholds": { "bearish": 0.15, "neutral": 0.20, "bullish": 0.25 },
+      "why": "The interest-cost spiral in one number."
+    },
+    {
+      "id": "foreign_official_chg_12m", "group": "plumbing", "weight": 0.5,
+      "name": "Foreign official Treasury holdings, 12-month change", "unit": "usd_bn",
+      "source": "tic", "cadence": "monthly", "transform": "chg_12m",
+      "direction": "lower_is_bullish", "thresholds": { "bullish": -200, "neutral": 0, "bearish": 200 },
+      "why": "Reserve managers rotating out of Treasuries (into gold) shrinks the price-insensitive buyer base."
+    },
+    {
+      "id": "cb_gold_purchases_3m", "group": "plumbing", "weight": 0.5,
+      "name": "Central bank net gold purchases, trailing 3 months", "unit": "tonnes",
+      "source": "manual_wgc", "cadence": "monthly", "transform": "trailing_sum_3m",
+      "direction": "higher_is_bullish", "thresholds": { "bearish": 50, "neutral": 150, "bullish": 300 },
+      "why": "The structural bid behind the de-dollarization premium."
+    }
+  ],
+
+  "crisis_flags": {
+    "rule": "crisis_flag = ON when at least 2 of the following are true (config.crisis_min_true, default 2)",
+    "conditions": [
+      { "id": "move_high", "expr": "MOVE_level > 120", "source": "yahoo:^MOVE" },
+      { "id": "hy_widening", "expr": "chg_30d(BAMLH0A0HYM2) > 1.00", "source": "fred:BAMLH0A0HYM2", "unit": "pct_points" },
+      { "id": "liquidity_phase", "expr": "chg_20d(DFII30) > 0.40 AND chg_20d(T10YIE) < -0.20", "note": "2008 signature: real yields spike while breakevens fall" },
+      { "id": "funding_stress", "expr": "SRF_usage_5d_avg > 20 OR sofr_iorb_spread > 25", "source": "nyfed_markets_api", "unit": "usd_bn / bp" }
+    ]
+  },
+
+  "fed_intervention_flags": {
+    "rule": "intervention_flag = ON when any one is true",
+    "conditions": [
+      { "id": "manual_announcement", "expr": "config.manual_intervention.on == true", "note": "Owner sets this with a date when the Fed announces purchases beyond RMP, an emergency facility, or yield targeting" },
+      { "id": "balance_sheet_jump", "expr": "chg_4w(WALCL) > 100", "unit": "usd_bn" },
+      { "id": "emergency_easing_priced", "expr": "chg_20d(fed_path_6m) < -100", "unit": "bp" }
+    ]
+  },
+
+  "regime_triggers": {
+    "A_slow_pivot": [
+      { "expr": "chg_12m(UNRATE) >= 0.5" },
+      { "expr": "CPIAUCSL_yoy < 3.0" },
+      { "expr": "fed_path_6m < -25" },
+      { "expr": "T10YIE_level between 2.0 and 2.6" }
+    ],
+    "B_crisis": [
+      { "expr": "crisis_flag == ON" },
+      { "expr": "chg_20d(DFII30) > 0.40" },
+      { "expr": "chg_30d(BAMLH0A0HYM2) > 1.00" },
+      { "expr": "auction_tail_long > 1.5" }
+    ],
+    "C_capture": [
+      { "expr": "fed_path_6m < 0 AND PCEPILFE_yoy > 3.0" },
+      { "expr": "real_policy_rate < 0" },
+      { "expr": "T10YIE_level > 2.75 OR T5YIFR_level > 2.75" },
+      { "expr": "curve_2s30s_chg_20d > 30 AND chg_20d(DGS30) > 0" },
+      { "expr": "dollar_broad_chg_60d < -4" },
+      { "expr": "gold_real_corr_60d > 0.3" }
+    ],
+    "D_productivity": [
+      { "expr": "DFII10_level > 2.0 AND chg_60d(T10YIE) < -0.15" },
+      { "expr": "deficit_to_gdp_trailing_12m < 5.5" },
+      { "expr": "productivity_yoy > 2.5", "source": "fred:OPHNFB", "cadence": "quarterly" }
+    ]
+  },
+
+  "context_series": [
+    { "id": "gold_spot", "source": "stooq:xauusd", "fallback": "yahoo:GC=F", "cadence": "daily" },
+    { "id": "gold_ath", "source": "derived", "transform": "running max of gold_spot" },
+    { "id": "gold_drawdown", "source": "derived", "transform": "gold_spot / gold_ath - 1" },
+    { "id": "gold_model_price", "source": "derived", "transform": "exp(a + b * DFII10) with (a, b) fit on 2006-01..2021-12" },
+    { "id": "gold_premium", "source": "derived", "transform": "gold_spot - gold_model_price" },
+    { "id": "gold_in_eur", "source": "derived", "inputs": ["gold_spot", "fred:DEXUSEU"], "optional": true },
+    { "id": "gold_in_jpy", "source": "derived", "inputs": ["gold_spot", "fred:DEXJPUS"], "optional": true },
+    { "id": "gold_in_cny", "source": "derived", "inputs": ["gold_spot", "fred:DEXCHUS"], "optional": true },
+    { "id": "DGS2", "source": "fred:DGS2" },
+    { "id": "DGS10", "source": "fred:DGS10" },
+    { "id": "DGS30", "source": "fred:DGS30" },
+    { "id": "DFII10", "source": "fred:DFII10" },
+    { "id": "EFFR", "source": "fred:EFFR", "fallback": "fred:DFF" },
+    { "id": "IORB", "source": "fred:IORB" },
+    { "id": "SOFR", "source": "fred:SOFR", "fallback": "nyfed_markets_api" },
+    { "id": "CPIAUCSL_yoy", "source": "fred:CPIAUCSL", "transform": "yoy_pct" },
+    { "id": "PCEPILFE_yoy", "source": "fred:PCEPILFE", "transform": "yoy_pct" },
+    { "id": "UNRATE", "source": "fred:UNRATE" },
+    { "id": "cot_managed_money_net_gold", "source": "cftc_cot", "cadence": "weekly", "note": "positioning context only, not scored" },
+    { "id": "deficit_to_gdp_trailing_12m", "source": "derived", "inputs": ["fiscaldata_mts", "fred:GDP"] }
+  ]
+}

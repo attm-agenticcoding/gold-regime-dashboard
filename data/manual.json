@@ -1,0 +1,4 @@
+{
+  "_readme": "手动输入。cb_gold_purchases_tonnes：月份 -> 央行净购金吨数（WGC 月报，注册下载）。页面上也能临时改，但要永久生效就改这里并 commit。",
+  "cb_gold_purchases_tonnes": {}
+}

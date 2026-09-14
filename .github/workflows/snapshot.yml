@@ -1,0 +1,52 @@
+name: daily snapshot
+
+on:
+  schedule:
+    # 22:00 UTC Mon-Fri (18:00 ET during DST, 17:00 ET in winter — Fed H.4.1 / FRED daily prints are in by then)
+    - cron: "0 22 * * 1-5"
+  workflow_dispatch:
+    inputs:
+      validate_only:
+        description: "only rebuild data/endpoint_status.json (no history write)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: snapshot
+  cancel-in-progress: false
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: pip install xlrd==2.0.1
+      - name: engine unit tests
+        run: node --test tests/engine.test.mjs
+      - name: pull all sources -> data/history.json
+        id: snap
+        run: |
+          if [ "${{ inputs.validate_only }}" = "true" ]; then
+            python scripts/snapshot.py --validate-only
+          else
+            python scripts/snapshot.py
+          fi
+      - name: engine smoke test on the fresh history
+        run: node scripts/smoke.mjs
+      - name: commit
+        run: |
+          git config user.name "gold-regime-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/history.json data/endpoint_status.json
+          git diff --cached --quiet && echo "no changes" || git commit -m "snapshot $(date -u +%F)"
+          git push

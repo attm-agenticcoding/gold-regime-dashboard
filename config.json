@@ -1,0 +1,40 @@
+{
+  "r_star": 1.0,
+  "base_pct": 40.0,
+  "overlay_max_pct": 60.0,
+  "denominator": "dedicated gold capital (the sleeve set aside for gold), not total portfolio",
+  "dry_powder_parking": "short TIPS or T-bills",
+  "tranches": {
+    "price": { "pct": 15, "trigger": "gold_spot <= 4000" },
+    "signal": { "pct": 15, "trigger": "gold_real_corr_60d > 0.3 OR t10yie_level > 2.6 OR real_policy_rate < 0 OR (fed_path_6m < 0 AND PCEPILFE_yoy > 3.0)" },
+    "crisis": { "pct": "remaining", "trigger": "intervention_flag == ON" }
+  },
+  "bands": [
+    { "max": 30, "overlay_fraction": 0.0 },
+    { "max": 60, "overlay_fraction": 0.3333 },
+    { "max": 80, "overlay_fraction": 0.6667 },
+    { "max": 100, "overlay_fraction": 1.0 }
+  ],
+  "settlement_day": "Friday",
+  "hysteresis_weeks": 2,
+  "post_intervention_hysteresis_weeks": 4,
+  "crisis_min_true": 2,
+  "crisis_rule": "freeze_overlay_adds",
+  "intervention_rule": "overlay_to_max",
+  "regime_priors": { "A": 0.45, "B": 0.25, "C": 0.20, "D": 0.10 },
+  "manual_intervention": { "on": false, "date": null, "note": "" },
+  "stale_days_zero_weight": 10,
+  "near_trigger_pct": 0.20,
+  "expression_note": { "score_min": 30, "score_max": 60, "c_min_true": 2, "b_min_true": 2 },
+  "gold_model_fit_window": { "start": "2006-01-01", "end": "2021-12-31" },
+  "corr_window_days": 60,
+
+  "_added_by_build": "下面几个是搭建时加的参数，默认值按 docs/ENDPOINT_STATUS.md 里的说明",
+  "gold_ath_override": null,
+  "auction_tail_bp_per_sigma": 1.0,
+  "auction_lookback_n": 12,
+  "buyback_long_end_min_years": 10,
+  "fed_path_months_ahead": 6,
+  "history_start": "2003-01-01",
+  "chart_lookback_days": 504
+}
