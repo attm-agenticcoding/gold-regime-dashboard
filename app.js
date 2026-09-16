@@ -239,7 +239,11 @@ async function main() {
     $("#asof").innerHTML = `数据截至 <b class="num">${r.as_of}</b> · 生成 ${r.generated_at ? r.generated_at.replace("T", " ").slice(0, 16) + " UTC" : "—"} · 指标日更，仓位建议每周五结算 · 版本 ${esc(registry.version)}`;
     const banners = [];
     if (r.sample) banners.push('<div class="banner bad">当前是示例数据（sample），第一次 Actions 运行后会被真实 history.json 替换。</div>');
-    if (history.bootstrap) banners.push(`<div class="banner">history.json 由浏览器抓取的原始 payload 回填（${esc(history.bootstrap)}）；ACM 期限溢价暂用 FRED THREEFYTP10 代替，第一次 Actions 运行后换成 ACM。</div>`);
+    const fb = r.data_status.filter((d) => d.fallback_used && !d.manual);
+    const mn = r.data_status.filter((d) => d.manual);
+    if (fb.length) banners.push(`<div class="banner">替代口径（主源不可用，页面按此计算）：${esc(fb.map((d) => d.id).join("、"))}。详见下方「数据状态」。</div>`);
+    if (mn.length) banners.push(`<div class="banner">手动输入：${esc(mn.map((d) => d.id + (isNum(d.value) ? "" : "（未填，权重 0）")).join("、"))}。</div>`);
+    if (history.bootstrap) banners.push(`<div class="banner">历史部分由浏览器抓取的原始 payload 一次性回填（${esc(history.bootstrap)}）；之后每个交易日由 Actions 追加，首次 Actions 运行后本条自动消失。</div>`);
     if (r.last_run && r.last_run.failed && r.last_run.failed.length) banners.push(`<div class="banner bad">上次 snapshot 有源失败：${esc(r.last_run.failed.join(", "))}（沿用最近有效值）</div>`);
     const dead = r.data_status.filter((d) => d.stale && !d.manual);
     if (dead.length) banners.push(`<div class="banner bad">stale 超过 ${cfg.stale_days_zero_weight} 个交易日、权重已归零：${esc(dead.map((d) => d.id).join(", "))}</div>`);

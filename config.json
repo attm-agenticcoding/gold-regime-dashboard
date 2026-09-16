@@ -30,7 +30,7 @@
   "corr_window_days": 60,
 
   "_added_by_build": "下面几个是搭建时加的参数，默认值按 docs/ENDPOINT_STATUS.md 里的说明",
-  "gold_ath_override": null,
+  "gold_ath_override": 5589.0,
   "auction_tail_bp_per_sigma": 1.0,
   "auction_lookback_n": 12,
   "buyback_long_end_min_years": 10,

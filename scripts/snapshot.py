@@ -799,6 +799,7 @@ def run(validate_only=False, dry_run=False):
         ensure_row(hist["daily"], today)
 
     hist["generated_at"] = dt.datetime.utcnow().isoformat(timespec="seconds") + "Z"
+    hist.pop("bootstrap", None)   # the one-off browser-dump marker is meaningless once a real run has appended
     hist["runs"].append({"run_at": hist["generated_at"], "date": today, "ok": ok, "failed": failed})
     hist["runs"] = hist["runs"][-400:]
     for row in st.rows:
