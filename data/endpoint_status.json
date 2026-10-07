@@ -1,16 +1,16 @@
 {
- "checked_at": "2026-10-06T02:05:33Z",
+ "checked_at": "2026-10-07T01:14:44Z",
  "rows": [
   {
    "id": "DFII5",
    "endpoint": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DFII5",
    "status": "live",
    "cadence": "daily",
-   "last_date": "2026-10-02",
-   "n": 6197,
+   "last_date": "2026-10-05",
+   "n": 6198,
    "note": "",
    "error": null,
-   "checked_at": "2026-10-06T02:04:55Z",
+   "checked_at": "2026-10-07T01:13:56Z",
    "fresh": true
   },
   {
@@ -18,11 +18,11 @@
    "endpoint": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DFII10",
    "status": "live",
    "cadence": "daily",
-   "last_date": "2026-10-02",
-   "n": 6197,
+   "last_date": "2026-10-05",
+   "n": 6198,
    "note": "",
    "error": null,
-   "checked_at": "2026-10-06T02:04:55Z",
+   "checked_at": "2026-10-07T01:13:56Z",
    "fresh": true
   },
   {
@@ -30,11 +30,11 @@
    "endpoint": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DFII30",
    "status": "live",
    "cadence": "daily",
-   "last_date": "2026-10-02",
-   "n": 4335,
+   "last_date": "2026-10-05",
+   "n": 4336,
    "note": "",
    "error": null,
-   "checked_at": "2026-10-06T02:04:55Z",
+   "checked_at": "2026-10-07T01:13:56Z",
    "fresh": true
   },
   {
@@ -42,11 +42,11 @@
    "endpoint": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS2",
    "status": "live",
    "cadence": "daily",
-   "last_date": "2026-10-02",
-   "n": 13134,
+   "last_date": "2026-10-05",
+   "n": 13135,
    "note": "",
    "error": null,
-   "checked_at": "2026-10-06T02:04:55Z",
+   "checked_at": "2026-10-07T01:13:56Z",
    "fresh": true
   },
   {
@@ -54,11 +54,11 @@
    "endpoint": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10",
    "status": "live",
    "cadence": "daily",
-   "last_date": "2026-10-02",
-   "n": 16894,
+   "last_date": "2026-10-05",
+   "n": 16895,
    "note": "",
    "error": null,
-   "checked_at": "2026-10-06T02:04:56Z",
+   "checked_at": "2026-10-07T01:13:56Z",
    "fresh": true
   },
   {
@@ -66,11 +66,11 @@
    "endpoint": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS30",
    "status": "live",
    "cadence": "daily",
-   "last_date": "2026-10-02",
-   "n": 12949,
+   "last_date": "2026-10-05",
+   "n": 12950,
    "note": "",
    "error": null,
-   "checked_at": "2026-10-06T02:04:56Z",
+   "checked_at": "2026-10-07T01:13:56Z",
    "fresh": true
   },
   {
@@ -78,11 +78,11 @@
    "endpoint": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=T10YIE",
    "status": "live",
    "cadence": "daily",
-   "last_date": "2026-10-05",
-   "n": 6198,
+   "last_date": "2026-10-06",
+   "n": 6199,
    "note": "",
    "error": null,
-   "checked_at": "2026-10-06T02:04:56Z",
+   "checked_at": "2026-10-07T01:13:56Z",
    "fresh": true
   },
   {
@@ -90,11 +90,11 @@
    "endpoint": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=T5YIFR",
    "status": "live",
    "cadence": "daily",
-   "last_date": "2026-10-05",
-   "n": 6198,
+   "last_date": "2026-10-06",
+   "n": 6199,
    "note": "",
    "error": null,
-   "checked_at": "2026-10-06T02:04:56Z",
+   "checked_at": "2026-10-07T01:13:56Z",
    "fresh": true
   },
   {
@@ -102,11 +102,11 @@
    "endpoint": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=EFFR",
    "status": "live",
    "cadence": "daily",
-   "last_date": "2026-10-02",
-   "n": 6850,
+   "last_date": "2026-10-05",
+   "n": 6851,
    "note": "",
    "error": null,
-   "checked_at": "2026-10-06T02:04:56Z",
+   "checked_at": "2026-10-07T01:13:56Z",
    "fresh": true
   },
   {
@@ -114,11 +114,11 @@
    "endpoint": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=IORB",
    "status": "live",
    "cadence": "daily",
-   "last_date": "2026-10-06",
-   "n": 1896,
+   "last_date": "2026-10-07",
+   "n": 1897,
    "note": "",
    "error": null,
-   "checked_at": "2026-10-06T02:04:56Z",
+   "checked_at": "2026-10-07T01:13:56Z",
    "fresh": true
   },
   {
@@ -126,11 +126,11 @@
    "endpoint": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=SOFR",
    "status": "live",
    "cadence": "daily",
-   "last_date": "2026-10-02",
-   "n": 2219,
+   "last_date": "2026-10-05",
+   "n": 2220,
    "note": "",
    "error": null,
-   "checked_at": "2026-10-06T02:04:56Z",
+   "checked_at": "2026-10-07T01:13:56Z",
    "fresh": true
   },
   {
@@ -138,11 +138,11 @@
    "endpoint": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=RRPONTSYD",
    "status": "live",
    "cadence": "daily",
-   "last_date": "2026-10-05",
-   "n": 6172,
+   "last_date": "2026-10-06",
+   "n": 6173,
    "note": "",
    "error": null,
-   "checked_at": "2026-10-06T02:04:56Z",
+   "checked_at": "2026-10-07T01:13:56Z",
    "fresh": true
   },
   {
@@ -154,7 +154,7 @@
    "n": 5415,
    "note": "",
    "error": null,
-   "checked_at": "2026-10-06T02:04:56Z",
+   "checked_at": "2026-10-07T01:13:56Z",
    "fresh": true
   },
   {
@@ -162,11 +162,11 @@
    "endpoint": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=BAMLH0A0HYM2",
    "status": "live",
    "cadence": "daily",
-   "last_date": "2026-10-02",
+   "last_date": "2026-10-05",
    "n": 792,
    "note": "",
    "error": null,
-   "checked_at": "2026-10-06T02:04:56Z",
+   "checked_at": "2026-10-07T01:13:56Z",
    "fresh": true
   },
   {
@@ -178,7 +178,7 @@
    "n": 7240,
    "note": "",
    "error": null,
-   "checked_at": "2026-10-06T02:04:56Z",
+   "checked_at": "2026-10-07T01:13:56Z",
    "fresh": true
   },
   {
@@ -190,7 +190,7 @@
    "n": 14545,
    "note": "",
    "error": null,
-   "checked_at": "2026-10-06T02:04:56Z",
+   "checked_at": "2026-10-07T01:13:56Z",
    "fresh": true
   },
   {
@@ -202,7 +202,7 @@
    "n": 11936,
    "note": "",
    "error": null,
-   "checked_at": "2026-10-06T02:04:56Z",
+   "checked_at": "2026-10-07T01:13:56Z",
    "fresh": true
   },
   {
@@ -214,7 +214,7 @@
    "n": 1242,
    "note": "",
    "error": null,
-   "checked_at": "2026-10-06T02:04:56Z",
+   "checked_at": "2026-10-07T01:13:56Z",
    "fresh": true
   },
   {
@@ -226,7 +226,7 @@
    "n": 1242,
    "note": "",
    "error": null,
-   "checked_at": "2026-10-06T02:04:56Z",
+   "checked_at": "2026-10-07T01:13:56Z",
    "fresh": true
   },
   {
@@ -238,7 +238,7 @@
    "n": 1242,
    "note": "",
    "error": null,
-   "checked_at": "2026-10-06T02:04:56Z",
+   "checked_at": "2026-10-07T01:13:56Z",
    "fresh": true
   },
   {
@@ -250,7 +250,7 @@
    "n": 956,
    "note": "",
    "error": null,
-   "checked_at": "2026-10-06T02:04:56Z",
+   "checked_at": "2026-10-07T01:13:56Z",
    "fresh": false
   },
   {
@@ -262,7 +262,7 @@
    "n": 812,
    "note": "",
    "error": null,
-   "checked_at": "2026-10-06T02:04:56Z",
+   "checked_at": "2026-10-07T01:13:56Z",
    "fresh": false
   },
   {
@@ -274,7 +274,7 @@
    "n": 945,
    "note": "",
    "error": null,
-   "checked_at": "2026-10-06T02:04:56Z",
+   "checked_at": "2026-10-07T01:13:56Z",
    "fresh": true
   },
   {
@@ -286,7 +286,7 @@
    "n": 318,
    "note": "",
    "error": null,
-   "checked_at": "2026-10-06T02:04:56Z",
+   "checked_at": "2026-10-07T01:13:57Z",
    "fresh": false
   },
   {
@@ -298,7 +298,7 @@
    "n": 318,
    "note": "",
    "error": null,
-   "checked_at": "2026-10-06T02:04:57Z",
+   "checked_at": "2026-10-07T01:13:57Z",
    "fresh": false
   },
   {
@@ -310,7 +310,7 @@
    "n": 225,
    "note": "",
    "error": null,
-   "checked_at": "2026-10-06T02:04:57Z",
+   "checked_at": "2026-10-07T01:13:57Z",
    "fresh": false
   },
   {
@@ -318,11 +318,11 @@
    "endpoint": "https://query1.finance.yahoo.com/v8/finance/chart/GC=F",
    "status": "fallback",
    "cadence": "daily",
-   "last_date": "2026-10-06",
-   "n": 5500,
+   "last_date": "2026-10-07",
+   "n": 5501,
    "note": "primary failed (stooq: '<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name='); GC=F front-month futures close",
    "error": null,
-   "checked_at": "2026-10-06T02:04:57Z",
+   "checked_at": "2026-10-07T01:13:58Z",
    "fresh": true
   },
   {
@@ -330,11 +330,11 @@
    "endpoint": "https://query1.finance.yahoo.com/v8/finance/chart/%5EMOVE",
    "status": "live",
    "cadence": "daily",
-   "last_date": "2026-10-05",
-   "n": 1256,
+   "last_date": "2026-10-06",
+   "n": 1257,
    "note": "",
    "error": null,
-   "checked_at": "2026-10-06T02:04:57Z",
+   "checked_at": "2026-10-07T01:13:58Z",
    "fresh": true
   },
   {
@@ -342,11 +342,11 @@
    "endpoint": "https://www.newyorkfed.org/medialibrary/media/research/data_indicators/ACMTermPremium.xls",
    "status": "live",
    "cadence": "daily",
-   "last_date": "2026-10-02",
-   "n": 16291,
+   "last_date": "2026-10-05",
+   "n": 16292,
    "note": "xlrd parse, ACMTP10 column",
    "error": null,
-   "checked_at": "2026-10-06T02:04:59Z",
+   "checked_at": "2026-10-07T01:14:00Z",
    "fresh": true
   },
   {
@@ -354,11 +354,11 @@
    "endpoint": "https://query1.finance.yahoo.com/v8/finance/chart/ZQJ27.CBT",
    "status": "live",
    "cadence": "daily",
-   "last_date": "2026-10-06",
+   "last_date": "2026-10-07",
    "n": 137,
    "note": "contract ZQJ27.CBT (2027-04); bp vs EFFR; fallback (DGS2-EFFR) computed in engine when null",
    "error": null,
-   "checked_at": "2026-10-06T02:04:59Z",
+   "checked_at": "2026-10-07T01:14:00Z",
    "fresh": true
   },
   {
@@ -366,11 +366,11 @@
    "endpoint": "fiscaldata v1/debt/mspd/mspd_table_1",
    "status": "live",
    "cadence": "monthly",
-   "last_date": "2026-08-31",
-   "n": 308,
+   "last_date": "2026-09-30",
+   "n": 309,
    "note": "Bills total_mil_amt / Total Marketable total_mil_amt, %",
    "error": null,
-   "checked_at": "2026-10-06T02:05:00Z",
+   "checked_at": "2026-10-07T01:14:01Z",
    "fresh": true
   },
   {
@@ -382,7 +382,7 @@
    "n": 138,
    "note": "USD bn per month; engine builds trailing-12m ratio",
    "error": null,
-   "checked_at": "2026-10-06T02:05:00Z",
+   "checked_at": "2026-10-07T01:14:02Z",
    "fresh": true
   },
   {
@@ -391,10 +391,10 @@
    "status": "fallback",
    "cadence": "event",
    "last_date": "2026-09-17",
-   "n": 202,
+   "n": 201,
    "note": "no when-issued yield available -> tail proxied by bid-to-cover z-score (see docs)",
    "error": null,
-   "checked_at": "2026-10-06T02:05:01Z",
+   "checked_at": "2026-10-07T01:14:04Z",
    "fresh": true
   },
   {
@@ -402,11 +402,11 @@
    "endpoint": "treasurydirect /instit/annceresult/press/preanre/{Y}/BBR_{YYYYMMDD}{174000|184000}.xml",
    "status": "live",
    "cadence": "event",
-   "last_date": "2026-10-01",
-   "n": 117,
-   "note": "probed 23 business days, found 0 new; schedule dates 18",
+   "last_date": "2026-10-06",
+   "n": 118,
+   "note": "probed 24 business days, found 1 new; schedule dates 18",
    "error": null,
-   "checked_at": "2026-10-06T02:05:15Z",
+   "checked_at": "2026-10-07T01:14:24Z",
    "fresh": true
   },
   {
@@ -414,11 +414,11 @@
    "endpoint": "https://markets.newyorkfed.org/api/rp/repo/all/results/last/120.json",
    "status": "live",
    "cadence": "daily",
-   "last_date": "2026-10-05",
+   "last_date": "2026-10-06",
    "n": 60,
    "note": "sum of repo ops accepted per day, USD bn",
    "error": null,
-   "checked_at": "2026-10-06T02:05:16Z",
+   "checked_at": "2026-10-07T01:14:24Z",
    "fresh": true
   },
   {
@@ -430,7 +430,7 @@
    "n": 13,
    "note": "row 'Of Which: Foreign Official', USD bn, month-end dates; mfh.txt is stale (2023-01) so not used",
    "error": null,
-   "checked_at": "2026-10-06T02:05:33Z",
+   "checked_at": "2026-10-07T01:14:44Z",
    "fresh": false
   },
   {
@@ -442,7 +442,7 @@
    "n": 4,
    "note": "context only, not scored",
    "error": null,
-   "checked_at": "2026-10-06T02:05:33Z",
+   "checked_at": "2026-10-07T01:14:44Z",
    "fresh": true
   },
   {
@@ -454,7 +454,7 @@
    "n": null,
    "note": "no keyless endpoint; weight -> 0 under stale rule when empty",
    "error": null,
-   "checked_at": "2026-10-06T02:05:33Z",
+   "checked_at": "2026-10-07T01:14:44Z",
    "fresh": false
   }
  ],
