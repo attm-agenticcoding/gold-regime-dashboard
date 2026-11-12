@@ -1,5 +1,5 @@
 {
- "checked_at": "2026-11-11T01:44:28Z",
+ "checked_at": "2026-11-12T02:44:18Z",
  "rows": [
   {
    "id": "DFII5",
@@ -10,7 +10,7 @@
    "n": 6223,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-11T01:43:47Z",
+   "checked_at": "2026-11-12T02:43:29Z",
    "fresh": true
   },
   {
@@ -22,7 +22,7 @@
    "n": 6223,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-11T01:43:47Z",
+   "checked_at": "2026-11-12T02:43:29Z",
    "fresh": true
   },
   {
@@ -34,7 +34,7 @@
    "n": 4361,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-11T01:43:47Z",
+   "checked_at": "2026-11-12T02:43:29Z",
    "fresh": true
   },
   {
@@ -46,7 +46,7 @@
    "n": 13160,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-11T01:43:47Z",
+   "checked_at": "2026-11-12T02:43:29Z",
    "fresh": true
   },
   {
@@ -58,7 +58,7 @@
    "n": 16920,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-11T01:43:47Z",
+   "checked_at": "2026-11-12T02:43:29Z",
    "fresh": true
   },
   {
@@ -70,7 +70,7 @@
    "n": 12975,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-11T01:43:48Z",
+   "checked_at": "2026-11-12T02:43:29Z",
    "fresh": true
   },
   {
@@ -82,7 +82,7 @@
    "n": 6224,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-11T01:43:48Z",
+   "checked_at": "2026-11-12T02:43:29Z",
    "fresh": true
   },
   {
@@ -94,7 +94,7 @@
    "n": 6224,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-11T01:43:48Z",
+   "checked_at": "2026-11-12T02:43:29Z",
    "fresh": true
   },
   {
@@ -106,7 +106,7 @@
    "n": 6876,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-11T01:43:48Z",
+   "checked_at": "2026-11-12T02:43:30Z",
    "fresh": true
   },
   {
@@ -118,7 +118,7 @@
    "n": 1933,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-11T01:43:48Z",
+   "checked_at": "2026-11-12T02:43:30Z",
    "fresh": true
   },
   {
@@ -130,7 +130,7 @@
    "n": 2245,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-11T01:43:48Z",
+   "checked_at": "2026-11-12T02:43:30Z",
    "fresh": true
   },
   {
@@ -142,7 +142,7 @@
    "n": 6198,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-11T01:43:49Z",
+   "checked_at": "2026-11-12T02:43:30Z",
    "fresh": true
   },
   {
@@ -154,8 +154,8 @@
    "n": 5440,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-11T01:43:49Z",
-   "fresh": true
+   "checked_at": "2026-11-12T02:43:30Z",
+   "fresh": false
   },
   {
    "id": "BAMLH0A0HYM2",
@@ -166,7 +166,7 @@
    "n": 792,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-11T01:43:49Z",
+   "checked_at": "2026-11-12T02:43:30Z",
    "fresh": true
   },
   {
@@ -178,8 +178,8 @@
    "n": 7265,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-11T01:43:49Z",
-   "fresh": true
+   "checked_at": "2026-11-12T02:43:30Z",
+   "fresh": false
   },
   {
    "id": "DEXJPUS",
@@ -190,8 +190,8 @@
    "n": 14570,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-11T01:43:49Z",
-   "fresh": true
+   "checked_at": "2026-11-12T02:43:30Z",
+   "fresh": false
   },
   {
    "id": "DEXCHUS",
@@ -202,8 +202,8 @@
    "n": 11961,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-11T01:43:49Z",
-   "fresh": true
+   "checked_at": "2026-11-12T02:43:30Z",
+   "fresh": false
   },
   {
    "id": "WALCL",
@@ -214,7 +214,7 @@
    "n": 1247,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-11T01:43:49Z",
+   "checked_at": "2026-11-12T02:43:30Z",
    "fresh": true
   },
   {
@@ -226,7 +226,7 @@
    "n": 1247,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-11T01:43:49Z",
+   "checked_at": "2026-11-12T02:43:30Z",
    "fresh": true
   },
   {
@@ -238,7 +238,7 @@
    "n": 1247,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-11T01:43:50Z",
+   "checked_at": "2026-11-12T02:43:30Z",
    "fresh": true
   },
   {
@@ -250,7 +250,7 @@
    "n": 958,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-11T01:43:50Z",
+   "checked_at": "2026-11-12T02:43:30Z",
    "fresh": true
   },
   {
@@ -262,7 +262,7 @@
    "n": 813,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-11T01:43:50Z",
+   "checked_at": "2026-11-12T02:43:30Z",
    "fresh": false
   },
   {
@@ -274,7 +274,7 @@
    "n": 946,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-11T01:43:50Z",
+   "checked_at": "2026-11-12T02:43:30Z",
    "fresh": true
   },
   {
@@ -286,7 +286,7 @@
    "n": 319,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-11T01:43:50Z",
+   "checked_at": "2026-11-12T02:43:30Z",
    "fresh": false
   },
   {
@@ -298,7 +298,7 @@
    "n": 319,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-11T01:43:50Z",
+   "checked_at": "2026-11-12T02:43:30Z",
    "fresh": false
   },
   {
@@ -310,7 +310,7 @@
    "n": 225,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-11T01:43:51Z",
+   "checked_at": "2026-11-12T02:43:31Z",
    "fresh": false
   },
   {
@@ -318,11 +318,11 @@
    "endpoint": "https://query1.finance.yahoo.com/v8/finance/chart/GC=F",
    "status": "fallback",
    "cadence": "daily",
-   "last_date": "2026-11-11",
-   "n": 5526,
+   "last_date": "2026-11-12",
+   "n": 5527,
    "note": "primary failed (stooq: '<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name='); GC=F front-month futures close",
    "error": null,
-   "checked_at": "2026-11-11T01:43:51Z",
+   "checked_at": "2026-11-12T02:43:32Z",
    "fresh": true
   },
   {
@@ -331,10 +331,10 @@
    "status": "live",
    "cadence": "daily",
    "last_date": "2026-11-10",
-   "n": 1257,
+   "n": 1258,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-11T01:43:51Z",
+   "checked_at": "2026-11-12T02:43:32Z",
    "fresh": true
   },
   {
@@ -346,7 +346,7 @@
    "n": 16316,
    "note": "xlrd parse, ACMTP10 column",
    "error": null,
-   "checked_at": "2026-11-11T01:43:53Z",
+   "checked_at": "2026-11-12T02:43:34Z",
    "fresh": true
   },
   {
@@ -354,11 +354,11 @@
    "endpoint": "https://query1.finance.yahoo.com/v8/finance/chart/ZQK27.CBT",
    "status": "live",
    "cadence": "daily",
-   "last_date": "2026-11-11",
-   "n": 139,
+   "last_date": "2026-11-12",
+   "n": 140,
    "note": "contract ZQK27.CBT (2027-05); bp vs EFFR; fallback (DGS2-EFFR) computed in engine when null",
    "error": null,
-   "checked_at": "2026-11-11T01:43:53Z",
+   "checked_at": "2026-11-12T02:43:34Z",
    "fresh": true
   },
   {
@@ -370,7 +370,7 @@
    "n": 310,
    "note": "Bills total_mil_amt / Total Marketable total_mil_amt, %",
    "error": null,
-   "checked_at": "2026-11-11T01:43:54Z",
+   "checked_at": "2026-11-12T02:43:35Z",
    "fresh": true
   },
   {
@@ -382,7 +382,7 @@
    "n": 139,
    "note": "USD bn per month; engine builds trailing-12m ratio",
    "error": null,
-   "checked_at": "2026-11-11T01:43:54Z",
+   "checked_at": "2026-11-12T02:43:36Z",
    "fresh": true
   },
   {
@@ -394,7 +394,7 @@
    "n": 0,
    "note": "no when-issued yield available -> tail proxied by bid-to-cover z-score (see docs)",
    "error": null,
-   "checked_at": "2026-11-11T01:43:56Z",
+   "checked_at": "2026-11-12T02:43:39Z",
    "fresh": true
   },
   {
@@ -404,9 +404,9 @@
    "cadence": "event",
    "last_date": "2026-11-05",
    "n": 124,
-   "note": "probed 24 business days, found 0 new; schedule dates 18",
+   "note": "probed 25 business days, found 0 new; schedule dates 18",
    "error": null,
-   "checked_at": "2026-11-11T01:44:10Z",
+   "checked_at": "2026-11-12T02:43:58Z",
    "fresh": true
   },
   {
@@ -418,7 +418,7 @@
    "n": 60,
    "note": "sum of repo ops accepted per day, USD bn",
    "error": null,
-   "checked_at": "2026-11-11T01:44:10Z",
+   "checked_at": "2026-11-12T02:43:58Z",
    "fresh": true
   },
   {
@@ -430,7 +430,7 @@
    "n": 13,
    "note": "row 'Of Which: Foreign Official', USD bn, month-end dates; mfh.txt is stale (2023-01) so not used",
    "error": null,
-   "checked_at": "2026-11-11T01:44:28Z",
+   "checked_at": "2026-11-12T02:44:18Z",
    "fresh": false
   },
   {
@@ -442,7 +442,7 @@
    "n": 9,
    "note": "context only, not scored",
    "error": null,
-   "checked_at": "2026-11-11T01:44:28Z",
+   "checked_at": "2026-11-12T02:44:18Z",
    "fresh": true
   },
   {
@@ -454,7 +454,7 @@
    "n": null,
    "note": "no keyless endpoint; weight -> 0 under stale rule when empty",
    "error": null,
-   "checked_at": "2026-11-11T01:44:28Z",
+   "checked_at": "2026-11-12T02:44:18Z",
    "fresh": false
   }
  ],
