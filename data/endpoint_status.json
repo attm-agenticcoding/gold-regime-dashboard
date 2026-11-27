@@ -1,5 +1,5 @@
 {
- "checked_at": "2026-11-26T03:58:49Z",
+ "checked_at": "2026-11-27T03:59:29Z",
  "rows": [
   {
    "id": "DFII5",
@@ -10,7 +10,7 @@
    "n": 6234,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-26T03:58:10Z",
+   "checked_at": "2026-11-27T03:56:53Z",
    "fresh": true
   },
   {
@@ -22,7 +22,7 @@
    "n": 6234,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-26T03:58:10Z",
+   "checked_at": "2026-11-27T03:56:53Z",
    "fresh": true
   },
   {
@@ -34,7 +34,7 @@
    "n": 4372,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-26T03:58:10Z",
+   "checked_at": "2026-11-27T03:56:53Z",
    "fresh": true
   },
   {
@@ -46,7 +46,7 @@
    "n": 13171,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-26T03:58:10Z",
+   "checked_at": "2026-11-27T03:56:53Z",
    "fresh": true
   },
   {
@@ -58,7 +58,7 @@
    "n": 16931,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-26T03:58:11Z",
+   "checked_at": "2026-11-27T03:56:53Z",
    "fresh": true
   },
   {
@@ -70,7 +70,7 @@
    "n": 12986,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-26T03:58:11Z",
+   "checked_at": "2026-11-27T03:56:54Z",
    "fresh": true
   },
   {
@@ -82,7 +82,7 @@
    "n": 6235,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-26T03:58:11Z",
+   "checked_at": "2026-11-27T03:56:54Z",
    "fresh": true
   },
   {
@@ -94,7 +94,7 @@
    "n": 6235,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-26T03:58:12Z",
+   "checked_at": "2026-11-27T03:56:54Z",
    "fresh": true
   },
   {
@@ -106,7 +106,7 @@
    "n": 6887,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-26T03:58:13Z",
+   "checked_at": "2026-11-27T03:56:54Z",
    "fresh": true
   },
   {
@@ -118,7 +118,7 @@
    "n": 1948,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-26T03:58:13Z",
+   "checked_at": "2026-11-27T03:56:55Z",
    "fresh": true
   },
   {
@@ -130,7 +130,7 @@
    "n": 2256,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-26T03:58:13Z",
+   "checked_at": "2026-11-27T03:56:55Z",
    "fresh": true
   },
   {
@@ -142,7 +142,7 @@
    "n": 6209,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-26T03:58:13Z",
+   "checked_at": "2026-11-27T03:56:55Z",
    "fresh": true
   },
   {
@@ -154,7 +154,7 @@
    "n": 5450,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-26T03:58:13Z",
+   "checked_at": "2026-11-27T03:56:55Z",
    "fresh": false
   },
   {
@@ -166,7 +166,7 @@
    "n": 793,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-26T03:58:13Z",
+   "checked_at": "2026-11-27T03:56:55Z",
    "fresh": true
   },
   {
@@ -178,7 +178,7 @@
    "n": 7275,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-26T03:58:13Z",
+   "checked_at": "2026-11-27T03:56:55Z",
    "fresh": false
   },
   {
@@ -190,7 +190,7 @@
    "n": 14580,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-26T03:58:13Z",
+   "checked_at": "2026-11-27T03:56:56Z",
    "fresh": false
   },
   {
@@ -202,7 +202,7 @@
    "n": 11971,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-26T03:58:13Z",
+   "checked_at": "2026-11-27T03:56:56Z",
    "fresh": false
   },
   {
@@ -214,7 +214,7 @@
    "n": 1249,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-26T03:58:13Z",
+   "checked_at": "2026-11-27T03:56:56Z",
    "fresh": true
   },
   {
@@ -226,7 +226,7 @@
    "n": 1249,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-26T03:58:13Z",
+   "checked_at": "2026-11-27T03:56:56Z",
    "fresh": true
   },
   {
@@ -238,7 +238,7 @@
    "n": 1249,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-26T03:58:13Z",
+   "checked_at": "2026-11-27T03:56:56Z",
    "fresh": true
   },
   {
@@ -250,7 +250,7 @@
    "n": 958,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-26T03:58:13Z",
+   "checked_at": "2026-11-27T03:56:56Z",
    "fresh": false
   },
   {
@@ -262,7 +262,7 @@
    "n": 814,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-26T03:58:13Z",
+   "checked_at": "2026-11-27T03:56:56Z",
    "fresh": false
   },
   {
@@ -274,7 +274,7 @@
    "n": 946,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-26T03:58:13Z",
+   "checked_at": "2026-11-27T03:56:56Z",
    "fresh": false
   },
   {
@@ -286,7 +286,7 @@
    "n": 319,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-26T03:58:13Z",
+   "checked_at": "2026-11-27T03:56:56Z",
    "fresh": false
   },
   {
@@ -298,7 +298,7 @@
    "n": 319,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-26T03:58:13Z",
+   "checked_at": "2026-11-27T03:56:57Z",
    "fresh": false
   },
   {
@@ -310,7 +310,7 @@
    "n": 225,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-26T03:58:13Z",
+   "checked_at": "2026-11-27T03:56:57Z",
    "fresh": false
   },
   {
@@ -318,11 +318,11 @@
    "endpoint": "https://query1.finance.yahoo.com/v8/finance/chart/GC=F",
    "status": "fallback",
    "cadence": "daily",
-   "last_date": "2026-11-26",
+   "last_date": "2026-11-27",
    "n": 5537,
    "note": "primary failed (stooq: '<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name='); GC=F front-month futures close",
    "error": null,
-   "checked_at": "2026-11-26T03:58:14Z",
+   "checked_at": "2026-11-27T03:56:58Z",
    "fresh": true
   },
   {
@@ -331,10 +331,10 @@
    "status": "live",
    "cadence": "daily",
    "last_date": "2026-11-25",
-   "n": 1258,
+   "n": 1257,
    "note": "",
    "error": null,
-   "checked_at": "2026-11-26T03:58:14Z",
+   "checked_at": "2026-11-27T03:56:58Z",
    "fresh": true
   },
   {
@@ -342,11 +342,11 @@
    "endpoint": "https://www.newyorkfed.org/medialibrary/media/research/data_indicators/ACMTermPremium.xls",
    "status": "live",
    "cadence": "daily",
-   "last_date": "2026-11-24",
-   "n": 16326,
+   "last_date": "2026-11-25",
+   "n": 16327,
    "note": "xlrd parse, ACMTP10 column",
    "error": null,
-   "checked_at": "2026-11-26T03:58:15Z",
+   "checked_at": "2026-11-27T03:56:59Z",
    "fresh": true
   },
   {
@@ -354,35 +354,35 @@
    "endpoint": "https://query1.finance.yahoo.com/v8/finance/chart/ZQK27.CBT",
    "status": "live",
    "cadence": "daily",
-   "last_date": "2026-11-26",
+   "last_date": "2026-11-27",
    "n": 140,
    "note": "contract ZQK27.CBT (2027-05); bp vs EFFR; fallback (DGS2-EFFR) computed in engine when null",
    "error": null,
-   "checked_at": "2026-11-26T03:58:16Z",
+   "checked_at": "2026-11-27T03:57:00Z",
    "fresh": true
   },
   {
    "id": "bills_share",
    "endpoint": "fiscaldata v1/debt/mspd/mspd_table_1",
-   "status": "live",
+   "status": "error",
    "cadence": "monthly",
    "last_date": "2026-10-31",
-   "n": 310,
+   "n": null,
    "note": "Bills total_mil_amt / Total Marketable total_mil_amt, %",
-   "error": null,
-   "checked_at": "2026-11-26T03:58:16Z",
+   "error": "HTTP Error 504: Gateway Time-out",
+   "checked_at": "2026-11-27T03:57:54Z",
    "fresh": true
   },
   {
    "id": "mts_receipts_interest",
-   "endpoint": "fiscaldata v1/accounting/mts/mts_table_9 (lines 120/320/340)",
-   "status": "live",
+   "endpoint": "fiscaldata mts_table_9",
+   "status": "error",
    "cadence": "monthly",
    "last_date": "2026-10-31",
-   "n": 140,
-   "note": "USD bn per month; engine builds trailing-12m ratio",
-   "error": null,
-   "checked_at": "2026-11-26T03:58:16Z",
+   "n": null,
+   "note": "",
+   "error": "HTTP Error 504: Gateway Time-out",
+   "checked_at": "2026-11-27T03:58:48Z",
    "fresh": true
   },
   {
@@ -394,7 +394,7 @@
    "n": 0,
    "note": "no when-issued yield available -> tail proxied by bid-to-cover z-score (see docs)",
    "error": null,
-   "checked_at": "2026-11-26T03:58:17Z",
+   "checked_at": "2026-11-27T03:58:51Z",
    "fresh": true
   },
   {
@@ -406,7 +406,7 @@
    "n": 127,
    "note": "probed 26 business days, found 0 new; schedule dates 18",
    "error": null,
-   "checked_at": "2026-11-26T03:58:30Z",
+   "checked_at": "2026-11-27T03:59:08Z",
    "fresh": true
   },
   {
@@ -418,7 +418,7 @@
    "n": 60,
    "note": "sum of repo ops accepted per day, USD bn",
    "error": null,
-   "checked_at": "2026-11-26T03:58:31Z",
+   "checked_at": "2026-11-27T03:59:09Z",
    "fresh": true
   },
   {
@@ -430,7 +430,7 @@
    "n": 13,
    "note": "row 'Of Which: Foreign Official', USD bn, month-end dates; mfh.txt is stale (2023-01) so not used",
    "error": null,
-   "checked_at": "2026-11-26T03:58:49Z",
+   "checked_at": "2026-11-27T03:59:29Z",
    "fresh": false
   },
   {
@@ -442,7 +442,7 @@
    "n": 11,
    "note": "context only, not scored",
    "error": null,
-   "checked_at": "2026-11-26T03:58:49Z",
+   "checked_at": "2026-11-27T03:59:29Z",
    "fresh": true
   },
   {
@@ -454,7 +454,7 @@
    "n": null,
    "note": "no keyless endpoint; weight -> 0 under stale rule when empty",
    "error": null,
-   "checked_at": "2026-11-26T03:58:49Z",
+   "checked_at": "2026-11-27T03:59:29Z",
    "fresh": false
   }
  ],
@@ -489,13 +489,14 @@
   "MOVE",
   "ACMTP10",
   "fed_path_6m",
-  "bills_share",
-  "mts_receipts_interest",
   "auctions_long",
   "buybacks",
   "srf_usage",
   "foreign_official_bn",
   "cot_managed_money_net_gold"
  ],
- "failed": []
+ "failed": [
+  "bills_share",
+  "mts_receipts_interest"
+ ]
 }
